@@ -1,0 +1,13 @@
+.infoTable{
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 999;
+    right: 10%;
+    top: 15%;
+    border: 1px solid black;
+    font-size: 1.5rem;
+    width: 11rem;
+    height: 5rem;;
+    padding: 1.5rem;
+
+}
