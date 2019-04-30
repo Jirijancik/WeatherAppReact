@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React , { Component } from 'react';
+import HeaderTable from './components/headerTable';
+import image1 from './images/sunny.png';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+constructor(){
+  super();
+  this.state={
+    infoTableData:{
+      day:"DNES",
+      weather:"SLUNEČNO",
+      temperature:"25C",
+      location:"OLOMOUC"
+    }
+  }
+}
+
+componentDidMount() {
+  console.log("seeee");
+  fetch('http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
+    .then(response => response.json())
+    .then(data => this.setState({ 
+      infoTableData:{
+        day: "Dnes",
+        weather: data.weather[0].main,
+        temperature:Math.round((data.main.temp) - 273.15)+'°C',
+        location:data.name
+      }
+
+      
+    }));
+
+}
+
+
+  render(){
+    return(
+      <React.Fragment>
+      <HeaderTable 
+      img={image1}
+      infoTableData={this.state.infoTableData}
+      ></HeaderTable>
+      <div>Carousel</div>
+      </React.Fragment>
+    )
+  }
 }
 
 export default App;
