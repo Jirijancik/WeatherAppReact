@@ -1,13 +1,15 @@
 import React , { Component } from 'react';
-import './headerTable.css';
+import './sidebarItem.css';
 
 const sidebarItem = (props) =>{
 
 
 return(
     <React.Fragment>
-             <div>
-                {props.day}
+             <div className="sidebarItem">
+                <div>{props.temp}</div>
+                <div>{} - {}</div>
+                <div>{}</div>
              </div>
     </React.Fragment>
 

@@ -1,0 +1,6 @@
+.sidebarTable{
+    display: grid;
+    grid-template-columns: repeat(40, 1fr);
+    margin-top: 10%;
+    border: 3px solid red;
+}

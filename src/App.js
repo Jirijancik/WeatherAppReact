@@ -9,33 +9,33 @@ class App extends React.Component {
 constructor(){
   super();
   this.state={
-    infoTableData:{
+    currentInfoTableData:{
       day:"DNES",
       weather:"SLUNEČNO",
       temperature:"25C",
       location:"OLOMOUC"
-    }
+    },
+    forecastListTable:[]
   }
 }
 
 componentDidMount() {
-  console.log("seeee");
   fetch('http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
     .then(response => response.json())
     .then(data => this.setState({ 
-      infoTableData:{
+      currentInfoTableData:{
         day: "Dnes",
         weather: data.weather[0].main,
         temperature:Math.round((data.main.temp) - 273.15)+'°C',
         location:data.name
-      }
-
-      
-    }));
+      }})
+    );
 
     fetch('http://api.openweathermap.org/data/2.5/forecast?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
     .then(response => response.json())
-    .then(data => console.log);
+    .then(data => this.setState({
+      forecastListTable:data.list
+    }));
 
 }
 
@@ -45,9 +45,12 @@ componentDidMount() {
       <React.Fragment>
         <HeaderTable 
         img={image1}
-        infoTableData={this.state.infoTableData}
+        infoTableData={this.state.currentInfoTableData}
         ></HeaderTable>
-        <SideBarTable></SideBarTable>
+
+        <SideBarTable 
+        forecastListTable={this.state.forecastListTable}
+        ></SideBarTable>
       </React.Fragment>
     )
   }

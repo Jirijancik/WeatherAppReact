@@ -1,20 +1,19 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
+import lifecycle from 'react-pure-lifecycle';
 import SidebarItem from './sidebarItem';
-import './headerTable.css';
+import './sidebarTable.css';
 
-const sideBarTable = (props) =>{
+let sidebarItemList = "Loading";
 
+const Channels = {
 
-return(
-    <React.Fragment>
-             <SidebarItem day={"Monday"}></SidebarItem>
-             <SidebarItem day={"Tuesday"}></SidebarItem>
-             <SidebarItem day={"Wednesday"}></SidebarItem>
-             <SidebarItem day={"Thursday"}></SidebarItem>
-             <SidebarItem day={"Friday"}></SidebarItem>
-    </React.Fragment>
-
-)
+    componentDidMount(props) {
+        sidebarItemList = props.forecastListTable.map(item => <SidebarItem className="sidebarTable" temp={item.main.temp} >AHOJ</SidebarItem> )
+    }
 }
 
-export default sideBarTable; 
+const sideBarTable = props => (
+    <div>{sidebarItemList}</div>
+    )
+
+export default lifecycle(Channels)(sideBarTable); 
