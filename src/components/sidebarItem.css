@@ -1,6 +1,39 @@
 .sidebarItem{
+    align-self: end;
     border: 1px solid black;
-    
+    width: 6rem;
     text-align: center;
-    height: 5rem;
+    height: 7rem;
+    transition: width 0.3s, height 0.2s, font-size 0.2s;
+    background: white;
+}
+
+.sidebarItem:hover{
+    border: 1px solid black;
+    width: 15rem;
+    text-align: center;
+    height: 13rem;
+    cursor: pointer;
+    font-size: 30px;
+    transition: width 0.3s, height 0.4s, font-size 0.4s;
+
+
+}
+
+.sidebarItem__time{
+margin-top: 10px;
+transition: margin-top 0.25s;
+}
+
+
+.sidebarItem:hover .sidebarItem__time:not(:hover) {
+    margin-top: 22px;
+    transition: margin-top 0.25s;
+}
+
+.sidebarItem__temp{
+    margin-top: 0px;
+}
+.sidebarItem__weather{
+    margin-top: 0px;
 }
