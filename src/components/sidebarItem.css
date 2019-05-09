@@ -5,18 +5,18 @@
     text-align: center;
     height: 7rem;
     transition: width 0.3s, height 0.2s, font-size 0.2s;
-    background: white;
+
 }
 
 .sidebarItem:hover{
     border: 1px solid black;
-    width: 15rem;
+    position: relative;
     text-align: center;
-    height: 13rem;
+    bottom: 50px;
     cursor: pointer;
-    font-size: 30px;
-    transition: width 0.3s, height 0.4s, font-size 0.4s;
-
+    font-weight: 600;
+    transition: font-size 0.2s transform 1.4s;
+    transform: scale(1.8);
 
 }
 
@@ -26,10 +26,7 @@ transition: margin-top 0.25s;
 }
 
 
-.sidebarItem:hover .sidebarItem__time:not(:hover) {
-    margin-top: 22px;
-    transition: margin-top 0.25s;
-}
+
 
 .sidebarItem__temp{
     margin-top: 0px;
@@ -37,3 +34,4 @@ transition: margin-top 0.25s;
 .sidebarItem__weather{
     margin-top: 0px;
 }
+

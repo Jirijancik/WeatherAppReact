@@ -1,4 +1,4 @@
-import React , { Component } from 'react';
+import React from 'react';
 import './sidebarItem.css';
 
 const sidebarItem = (props) =>{
@@ -7,7 +7,12 @@ const sidebarItem = (props) =>{
 return(
     <React.Fragment>
       
-        <div className="sidebarItem">
+
+
+        <div className="sidebarItem" 
+        onDoubleClick={props.function}
+
+        >
 
             <p className="sidebarItem__time">{props.time}</p>
             <p className="sidebarItem__temp">{props.temp}</p>

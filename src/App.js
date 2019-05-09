@@ -22,7 +22,7 @@ class App extends Component {
       },
       currentImage: "hello",
       forecastListTable: [],
-    
+
 
     }
   }
@@ -30,20 +30,24 @@ class App extends Component {
   componentDidMount() {
     fetch('http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
       .then(response => response.json())
-      .then(data => this.setState({
-        currentInfoTableData: {
-          day: "Dnes",
-          weather: data.weather[0].main,
-          temperature: Math.round((data.main.temp) - 273.15) + '°C',
-          location: data.name
-        }
-      }))
-      .then(this.imageChanger(this.state.currentInfoTableData.weather));
+      .then(data => new Promise((resolve, reject) => {
+        this.setState({
+          currentInfoTableData: {
+            day: "Dnes",
+            weather: data.weather[0].main,
+            temperature: Math.round((data.main.temp) - 273.15) + '°C',
+            location: data.name
+          }
+        });
+        resolve(data);
+      })
+      )
+      .then(data => this.imageChanger(data.weather[0].main));
 
     fetch('http://api.openweathermap.org/data/2.5/forecast?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
       .then(response => response.json())
       .then(data => this.setState({
-        forecastListTable: data.list.slice(0,20)
+        forecastListTable: data.list.slice(0, 20)
       }))
       .then(this.scrollEventListeners());
   }
@@ -84,23 +88,38 @@ class App extends Component {
 
     switch (currentWeather) {
       case "Sunny":
-        this.setState({currentImage:Sunny});
+        this.setState({ currentImage: Sunny });
         break;
       case "Clear":
-      this.setState({currentImage:Clear});
+        this.setState({ currentImage: Clear });
         break;
       case "Drizzle":
-      this.setState({currentImage:Drizzle});
+        this.setState({ currentImage: Drizzle });
         break;
       case "Rain":
-      this.setState({currentImage:Rain});
+        this.setState({ currentImage: Rain });
         break;
       case "Tuhnderstorm":
-      this.setState({currentImage:Tuhnderstorm});
+        this.setState({ currentImage: Tuhnderstorm });
         break;
-      default: this.setState({currentImage:Rain});
-      
+      default: this.setState({ currentImage: Clear });
+
     }
+  }
+
+
+  sidebarItemActivation = (temp, weather, time) => {
+      this.setState(
+        {
+          currentInfoTableData: {
+            day: time,
+            weather: weather,
+            temperature: temp,
+            
+          }
+        }
+        
+      )
   }
 
   render() {
@@ -113,6 +132,7 @@ class App extends Component {
 
         <SideBarTable
           forecastListTable={this.state.forecastListTable}
+          propagateinfo = {this.sidebarItemActivation}
         ></SideBarTable>
       </React.Fragment>
     )
