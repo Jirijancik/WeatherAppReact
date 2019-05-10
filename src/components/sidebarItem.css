@@ -1,0 +1,50 @@
+.sidebarItem{
+    align-self: end;
+
+    width: 6rem;
+    text-align: center;
+    height: 7rem;
+    transition: width 0.3s, height 0.2s, font-size 0.2s;
+
+}
+
+.sidebarItem:hover{
+
+    position: relative;
+    text-align: center;
+    bottom: 50px;
+    cursor: pointer;
+    opacity: 0.95 !important;
+    z-index: 99999;
+    font-weight: 600;
+    transition: font-size 0.2s transform 1.4s;
+    transform: scale(1.8);
+
+}
+
+.sidebarItem__time{
+margin-top: 10px;
+transition: margin-top 0.25s;
+}
+
+
+
+
+.sidebarItem__temp{
+    margin-top: 0px;
+}
+.sidebarItem__weather{
+    margin-top: 0px;
+}
+
+.day{
+    background-color: #d0e1f9;
+    color:  black;
+    opacity: 0.85;
+}
+
+.night{
+    background-color: #4d648d;
+    color:  white;
+    opacity: 0.85;
+}

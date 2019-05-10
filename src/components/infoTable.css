@@ -1,0 +1,39 @@
+.infoTable{
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 999;
+    right: 10%;
+    top: 14.5%;
+   
+    font-size: 1.5rem;
+    width: 18rem;
+    height: 9rem;;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: -32px -32px 10px -33px rgba(0,0,0,0.54);
+
+}
+
+.infoTable__header{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.infoTable__block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.infoTable__block__item{
+    height: 6rem;
+
+    margin: 0;
+}
+
+.infoTable__hr{
+    margin-bottom: 2rem;
+}
