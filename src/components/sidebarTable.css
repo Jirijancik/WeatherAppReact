@@ -17,10 +17,12 @@
 
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE 10+ */
-
+    transition: .3s;
     user-select: none;
-
-
+}
+.sidebarTable:hover{
+    transition: .3s;
+    transform: scale(1.01);
 }
 .sidebarTable::-webkit-scrollbar { /* WebKit */
     width: 0;

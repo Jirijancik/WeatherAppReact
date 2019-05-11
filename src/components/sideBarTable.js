@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import SidebarItem from './sidebarItem';
 import './sidebarTable.css';
-import sidebarItem from './sidebarItem';
+
 
 class sideBarTable extends Component {
 
@@ -10,55 +10,74 @@ class sideBarTable extends Component {
         super(props)
         this.state = { 
             sidebarItemList: "Loading",
-            count:0 }
+            newForecastListTable:[]
+        }
 
     }
 
-    componentWillReceiveProps(nextProps) {
-        const tempConverter = (temperature) => {
-            return Math.round((temperature) - 273.15) + '°C'
-        };
+
+    async componentDidMount(){
+        const response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
+        const data = await response.json()
+        this.setState({
+            newForecastListTable: data.list.slice(0, 20)
+        })
+        this.scrollEventListeners();
 
 
-        let backgroundChanger=()=>{
-            let sidebarItems = document.querySelectorAll(".sidebarItem");
-            sidebarItems.forEach(sidebarItem =>{
-
-                let timeNum = parseInt(sidebarItem.firstElementChild.textContent.slice(0,2), 10);
-             
-                (timeNum < 12) ? sidebarItem.style.backgroundColor  = "white" : sidebarItem.style.backgroundColor  = "black";
-            }
-
-            )
-        } 
-      
-
-        const newSidebarItemList = nextProps.forecastListTable.map(item =>
+        const newSidebarItemList = await this.state.newForecastListTable.map(item =>
             
             <SidebarItem
-                className="sidebarItem"
+                
 
                 temp={tempConverter(item.main.temp)}
                 weather={item.weather[0].main}
-                time={item.dt_txt.slice(-8)}
-
+                time={item.dt} 
                 function = {this.props.propagateinfo}
-
+                
 
             ></SidebarItem>)
 
 
         this.setState({ sidebarItemList: newSidebarItemList });
 
-        backgroundChanger();
+        function tempConverter (temperature) {
+            return Math.round((temperature) - 273.15) + '°C'
+        };
     }
 
-    shouldComponentUpdate(nextProps) {
-        return this.state.sidebarItemList !== nextProps.newSidebarItemList;
-    }
 
 
 
+
+    scrollEventListeners() {
+        const sidebarTable = document.querySelector('.sidebarTable');
+        let isDown = false;
+        let scrollingSpeed = 0.7;
+        let startX;
+        let scrollLeft;
+    
+        sidebarTable.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - sidebarTable.offsetLeft;
+          scrollLeft = sidebarTable.scrollLeft;
+        });
+        sidebarTable.addEventListener('mouseup', () => {
+          isDown = false;
+    
+        });
+        sidebarTable.addEventListener('mouseleave', () => {
+          isDown = false;
+    
+        });
+        sidebarTable.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - sidebarTable.offsetLeft;
+          const walk = (x - startX) * scrollingSpeed;
+          sidebarTable.scrollLeft = scrollLeft - walk;
+        });
+      }
 
 
 

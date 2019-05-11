@@ -1,0 +1,23 @@
+.weatherInfoTable{
+    width: 18rem;
+    display: grid;
+    grid-row-gap: 5px;
+    border-right: 6px solid black;
+    z-index: 999;
+    position: absolute;
+    bottom: 280px;
+    right: 11%;
+    transition: border-right 0.35s;
+    background-color: white;
+    padding: 15px;
+
+}
+
+.weatherInfoTable:hover{
+    border-right: 8px solid rgba(0, 0, 0, 0.90);
+    transition: border-right 0.35;
+}
+
+.wetherInfoCell{
+font-size: 1.2rem;
+}

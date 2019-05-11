@@ -10,7 +10,7 @@ return(
             
                 <img className="headerTable" src={props.img} alt="sunny"></img>
                 <InfoTable
-                    infoTableData={props.infoTableData} 
+                    {...props}
                 ></InfoTable>
             
     </React.Fragment>
