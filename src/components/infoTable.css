@@ -2,12 +2,12 @@
     text-transform: uppercase;
     position: absolute;
     z-index: 999;
-    right: 10%;
-    top: 14%;
+    right: 8%;
+    top: 11%;
    
     font-size: 1.5rem;
-    width: 18rem;
-    height: 9rem;;
+    width: 22rem;
+    height: 11rem;;
     padding: 1.5rem;
     background: white;
     box-shadow: -32px -32px 10px -33px rgba(0,0,0,0.54);

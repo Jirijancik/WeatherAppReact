@@ -19,16 +19,12 @@
     font-weight: 600;
     transition: 0.2s;
     transform: scale(1.8);
-
 }
 
 .sidebarItem__time{
 margin-top: 10px;
 transition: margin-top 0.25s;
 }
-
-
-
 
 .sidebarItem__temp{
     margin-top: 0px;
@@ -38,9 +34,12 @@ transition: margin-top 0.25s;
 }
 
 .day{
-    background-color: #d0e1f9;
+    background-color: #dfe2e6;
     color:  black;
     opacity: 0.75;
+}
+.day:hover{
+    border: 1px solid #adc3e9;
 }
 
 .night{

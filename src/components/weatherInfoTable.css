@@ -1,12 +1,13 @@
 .weatherInfoTable{
-    width: 18rem;
+    width: 22rem;
+    
     display: grid;
     grid-row-gap: 5px;
     border-right: 6px solid black;
     z-index: 999;
     position: absolute;
     bottom: 280px;
-    right: 11%;
+    right: 9%;
     transition: border-right 0.35s;
     background-color: white;
     padding: 15px;

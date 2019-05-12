@@ -9,7 +9,7 @@ const infoTable = (props) => {
             {props.infoTableData &&
                 <React.Fragment>
                     <div className="infoTable">
-                        <h1 className="infoTable__header">{props.infoTableData.day}:{props.time} - {props.location}</h1>
+                        <h1 className="infoTable__header">{props.infoTableData.currentDay}: {props.infoTableData.currentTime} - {props.location}</h1>
 
                         <hr className="infoTable__hr"></hr>
 

@@ -17,10 +17,11 @@ class sideBarTable extends Component {
 
 
     async componentDidMount(){
-        const response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0')
-        const data = await response.json()
+
+        const response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0');
+        const data = await response.json();
         this.setState({
-            newForecastListTable: data.list.slice(0, 20)
+            newForecastListTable: data.list
         })
         this.scrollEventListeners();
 
@@ -29,12 +30,13 @@ class sideBarTable extends Component {
             
             <SidebarItem
                 
+                item = {item}
 
                 temp={tempConverter(item.main.temp)}
                 weather={item.weather[0].main}
                 time={item.dt} 
-                function = {this.props.propagateinfo}
-                
+                propagateinfoTableData = {this.props.propagateinfoTableData}
+                propagateInfoWeatherTableData = {this.props.propagateInfoWeatherTableData}
 
             ></SidebarItem>)
 
