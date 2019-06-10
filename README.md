@@ -7,11 +7,9 @@ Zobrazení Současné Předopvědi Počasi
 Zobrazení 20ti Předpovědí po tříhodinových intervalech
 CSS Design Refaktoring
 CSS BEM
-
+Přidání Interaktivity Tříhodinových Předpovědí
+Přidání Tabulky S Dodatečnými Informacemi
 
 Plánované změny:
 Přidání Výběru Měst (prozatím je dostupná předpověď pouze pro olomouc)
 Přidání Zobrazení Počasí Podle Geolokace
-Přidání Interaktivity Tříhodinových Předpovědí
-Přidání Tabulky S Dodatečnými Informacemi
-Uprava A Polish Header Artů
