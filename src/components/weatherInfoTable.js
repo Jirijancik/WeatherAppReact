@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './weatherInfoTable.css';
 
 const weatherInfoTable = (props) => {
 
-
-
-
-    return(
+    return (
 
         <div className="weatherInfoTable">
             <div className="wetherInfoCell">Weather: {props.data.description}</div>
@@ -15,8 +12,6 @@ const weatherInfoTable = (props) => {
             <div className="wetherInfoCell">Pressure: {props.data.pressure}</div>
             <div className="wetherInfoCell">Humidity: {props.data.humidity}</div>
             <div className="wetherInfoCell">Sunrise: {props.data.sunrise} | Sunset: {props.data.sunset}</div>
-            
-            
         </div>
 
     )

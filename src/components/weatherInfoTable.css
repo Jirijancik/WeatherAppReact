@@ -1,6 +1,5 @@
 .weatherInfoTable{
     width: 22rem;
-    
     display: grid;
     grid-row-gap: 5px;
     border-right: 6px solid black;
@@ -11,7 +10,6 @@
     transition: border-right 0.35s;
     background-color: white;
     padding: 15px;
-
 }
 
 .weatherInfoTable:hover{

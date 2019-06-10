@@ -4,14 +4,12 @@
     z-index: 999;
     right: 8%;
     top: 11%;
-   
     font-size: 1.5rem;
     width: 22rem;
     height: 11rem;;
     padding: 1.5rem;
     background: white;
     box-shadow: -32px -32px 10px -33px rgba(0,0,0,0.54);
-
 }
 
 .infoTable__header{
@@ -25,12 +23,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-
 }
 
 .infoTable__block__item{
     height: 6rem;
-
     margin: 0;
 }
 

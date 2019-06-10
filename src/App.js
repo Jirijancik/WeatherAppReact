@@ -23,21 +23,24 @@ class App extends Component {
       forecastListTable: [],
       currentDay: "Loading",
       currentTime: '',
-
     }
   }
 
+
+
+  // Component did mount LifeCycle
   async componentDidMount() {
+    this.fetchDataFromAPI('http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=687213f5b48935a3c97e20b678b66451');
+  }
+
+
+
+  // Function for fetching Data from OpenWeatherApp
+  async fetchDataFromAPI(adres) {
     const UNIXTime = Math.round(new Date().getTime() / 1000);
     const _currentTime = this.convertUNIXTimestampToTime(UNIXTime);
-  
 
-
-    /* GEOLOCATION */
-    // const _adress = await this.getLocation();
-
-
-    const response = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0');
+    const response = await fetch(adres);
     const data = await response.json();
     this.setState({
       currentInfoTableData: {
@@ -63,49 +66,22 @@ class App extends Component {
 
     await this.imageChanger(data.weather[0].main);
 
-
   }
 
-/* GEOLOCATION METHODS */
-  // getLocation = () => {
-  //   if (navigator.geolocation) {
-  //     return navigator.geolocation.getCurrentPosition(this.getCoordinates);
-  //   }
-  //   else {
-  //     const adress = 'http://api.openweathermap.org/data/2.5/weather?q=Olomouc,CZ&appid=aa794bac773a44c2e0248797cec961b0';
-  //     return adress;
-  //   }
-  // }
 
-  // getCoordinates = (pos) => {
-  //   const crd = pos.coords;
-  //   const lat = crd.latitude;
-  //   const long = crd.latitude;
-
-  //   this.setState({
-  //     location: `[${lat}] + [${long}]`
-  //   });
-    
-  //   const adress = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=aa794bac773a44c2e0248797cec961b0`;
-  //   console.log(adress);
-   
-  //   return adress;
-  // }
-
-
-
-
+  // Function for converting temperature to Celsius 
   toCelsiusConverter = (temperature) => Math.round((temperature) - 273.15) + '°C';
 
 
-
-
-
+  // Function to conert UNIXTimestamp to Time
   convertUNIXTimestampToTime = (input) => {
     var time = new Date(input * 1000);
     return time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
+
+  // Function for selecting background images according
+  // to weather
   imageChanger = (currentWeather) => {
     switch (currentWeather) {
       case "Sunny":
@@ -132,6 +108,8 @@ class App extends Component {
   }
 
 
+  // Function for getting data from sideBar items
+  // to main app state
   sidebarItemActivation = (temp, weather, time, day) => {
     this.setState({
       currentInfoTableData: {
@@ -145,6 +123,8 @@ class App extends Component {
   }
 
 
+  // Function for getting data from sideBar items
+  // to Weather Info Table state
   weatherInfoTableActivation = (weatherDesc, tempMin, tempMax, wind, pressure, humidity, sunrise, sunset) => {
     this.setState({
       weatherInfoTableData: {
@@ -154,8 +134,8 @@ class App extends Component {
         pressure: pressure,
         humidity: humidity + '%',
         wind: wind + ' m/s',
-        sunrise: this.convertUNIXTimestampToTime(sunrise) === 'Invalid Date'? 'N/A': this.convertUNIXTimestampToTime(sunrise),
-        sunset: this.convertUNIXTimestampToTime(sunset) === 'Invalid Date'? 'N/A': this.convertUNIXTimestampToTime(sunrise),
+        sunrise: this.convertUNIXTimestampToTime(sunrise) === 'Invalid Date' ? 'N/A' : this.convertUNIXTimestampToTime(sunrise),
+        sunset: this.convertUNIXTimestampToTime(sunset) === 'Invalid Date' ? 'N/A' : this.convertUNIXTimestampToTime(sunrise),
       }
     })
   }
@@ -170,13 +150,13 @@ class App extends Component {
         ></HeaderTable>
 
         <WeatherInfoTable
-         data={this.state.weatherInfoTableData}
-         ></WeatherInfoTable>
+          data={this.state.weatherInfoTableData}
+        ></WeatherInfoTable>
 
         <SideBarTable
           forecastListTable={this.state.forecastListTable}
           propagateinfoTableData={this.sidebarItemActivation}
-          propagateInfoWeatherTableData = {this.weatherInfoTableActivation}
+          propagateInfoWeatherTableData={this.weatherInfoTableActivation}
         ></SideBarTable>
       </React.Fragment>
     )

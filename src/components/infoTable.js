@@ -23,15 +23,15 @@ const infoTable = (props) => {
             {!props.infoTableData &&
                 <React.Fragment>
                     <div className="infoTable">
-                    <h1 className="infoTable__header">LOADING - {props.location}</h1>
-                    <hr className="infoTable__hr"></hr>
-                    LOADING
+
+                        <h1 className="infoTable__header">LOADING - {props.location}</h1>
+
+                        <hr className="infoTable__hr"></hr>
+                        LOADING
                     </div>
                 </React.Fragment>
             }
-            
-    </React.Fragment>
-
+        </React.Fragment>
     )
 }
 

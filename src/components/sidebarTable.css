@@ -9,12 +9,9 @@
     z-index: 999;
     position: relative;
     bottom: 260px;
-    
     height: 13.2rem;
-
     overflow-x: scroll;
     overflow-y: hidden;
-
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE 10+ */
     transition: .3s;
