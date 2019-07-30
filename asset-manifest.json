@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/WeatherAppReact/static/css/main.44cbee5a.chunk.css",
+    "main.js": "/WeatherAppReact/static/js/main.02b4d694.chunk.js",
+    "main.js.map": "/WeatherAppReact/static/js/main.02b4d694.chunk.js.map",
+    "runtime~main.js": "/WeatherAppReact/static/js/runtime~main.a9e0aea6.js",
+    "runtime~main.js.map": "/WeatherAppReact/static/js/runtime~main.a9e0aea6.js.map",
+    "static/js/2.0b1e0de2.chunk.js": "/WeatherAppReact/static/js/2.0b1e0de2.chunk.js",
+    "static/js/2.0b1e0de2.chunk.js.map": "/WeatherAppReact/static/js/2.0b1e0de2.chunk.js.map",
+    "index.html": "/WeatherAppReact/index.html",
+    "precache-manifest.0f16349d2466cf0599f119a94a77faa3.js": "/WeatherAppReact/precache-manifest.0f16349d2466cf0599f119a94a77faa3.js",
+    "service-worker.js": "/WeatherAppReact/service-worker.js",
+    "static/css/main.44cbee5a.chunk.css.map": "/WeatherAppReact/static/css/main.44cbee5a.chunk.css.map",
+    "static/media/Clear.jpg": "/WeatherAppReact/static/media/Clear.10a7323a.jpg",
+    "static/media/Clouds.jpg": "/WeatherAppReact/static/media/Clouds.575843f4.jpg",
+    "static/media/Drizzle.jpg": "/WeatherAppReact/static/media/Drizzle.b1602a91.jpg",
+    "static/media/Rain.jpg": "/WeatherAppReact/static/media/Rain.4cbf7c45.jpg",
+    "static/media/Sunny.jpg": "/WeatherAppReact/static/media/Sunny.c8ba198b.jpg",
+    "static/media/Thunderstorm.jpg": "/WeatherAppReact/static/media/Thunderstorm.e1ed9fe4.jpg"
+  }
+}
